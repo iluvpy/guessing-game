@@ -9,7 +9,7 @@ pub struct Player {
 
 pub struct Died {
     pub name: String,
-    pub i: usize
+    pub index: usize
 }
 
 impl Player {
@@ -19,7 +19,7 @@ impl Player {
     }
 
     pub fn calculate_guess(&mut self, random_num: i32) {
-        self.life -= random_num - self.guess;
+        self.life -= (random_num - self.guess).abs();
     }
 
     pub fn get_life(&self) -> i32 {

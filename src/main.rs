@@ -40,14 +40,14 @@ fn main() {
                 println!("{} sei morto!", player.get_name());
                 killed.push(player::Died {
                     name: player.get_name(),
-                    i: i
+                    index: i
                 });
             }
             i += 1;
         }
 
-        println!("La mia scelta è stata {}! Adesso guardo se avete perso", random_number);
-        println!("\nGiocatori vivi: ");
+        println!("\nLa mia scelta è stata {}! Adesso guardo se avete perso", random_number);
+        println!("Giocatori vivi: ");
         for player in &players {
             println!("{} ha {} vita", player.get_name(), player.get_life());
         }
@@ -57,7 +57,7 @@ fn main() {
         }
         for died in killed {
             println!("{} died!", died.name);
-            players.remove(died.i);
+            players.remove(died.index);
         }
 
     }
